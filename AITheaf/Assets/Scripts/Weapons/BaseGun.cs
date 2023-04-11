@@ -268,6 +268,13 @@ namespace CoverShooter
         /// </summary>
         [Tooltip("Links to objects that overwrite the value in LeftHand based on the gameplay situation.")]
         public HandOverwrite LeftHandOverwrite;
+
+        /// <summary>
+        /// Force the pistol to use this laser instead of finding one on its own.
+        /// </summary>
+        [Tooltip("Force the pistol to use this laser instead of finding one on its own.")]
+        public Laser LaserOverwrite;
+
         /// <summary>
         /// Owning object with a CharacterMotor component.
         /// </summary>
@@ -355,6 +362,8 @@ namespace CoverShooter
 
         private RaycastHit[] _hits = new RaycastHit[16];
 
+        private Laser _laser;
+
         private bool _isIgnoringSelf = true;
         private bool _hasFireCondition;
         private int _fireConditionSide;
@@ -422,6 +431,28 @@ namespace CoverShooter
         #endregion
 
         #region Behaviour
+
+        /// <summary>
+        /// Get the LineRenderer if there is one.
+        /// </summary>
+        protected virtual void Start()
+        {
+            _laser = LaserOverwrite;
+
+            if (_laser == null)
+                _laser = GetComponent<Laser>();
+
+            if (_laser == null)
+                _laser = GetComponentInChildren<Laser>();
+
+            if (_laser == null && transform.parent != null)
+            {
+                _laser = transform.parent.GetComponentInChildren<Laser>();
+
+                if (_laser != null && _laser.GetComponent<BaseGun>() != null)
+                    _laser = null;
+            }
+        }
 
         private void OnValidate()
         {
@@ -533,6 +564,7 @@ namespace CoverShooter
                                 Character.InputPump(0.1f);
 
                             Character.InputRecoil(Recoil.Vertical, Recoil.Horizontal);
+                            ThirdPersonCamera.Shake(Character, Recoil.ShakeIntensity, Recoil.ShakeTime);
                         }
                     }
                     else
@@ -554,6 +586,11 @@ namespace CoverShooter
 
             // Clamp fire delay timer.
             if (_fireWait < 0) _fireWait = 0;
+
+            if (_laser != null && Character != null)
+                _laser.Alpha = Character.IsZooming ? 1 : 0;
+
+            adjustLaser();
 
             _additionalError = 0;
             _errorMultiplier = 1;
@@ -707,9 +744,9 @@ namespace CoverShooter
 
                     if (hit.collider.isTrigger)
                     {
-                        //if (BodyPartHealth.Contains(hit.collider.gameObject))
-                        //    isOk = true;
-                        //else
+                        if (BodyPartHealth.Contains(hit.collider.gameObject))
+                            isOk = true;
+                        else
                         {
                             var shield = BulletShield.Get(hit.collider.gameObject);
 
@@ -850,6 +887,24 @@ namespace CoverShooter
         /// Consume a single bullet.
         /// </summary>
         protected abstract void Consume();
+
+        private void adjustLaser()
+        {
+            // Adjust the laser.
+            if (_laser != null)
+            {
+                var origin = Origin;
+                var direction = Direction;
+
+                bool isFriend;
+                var hit = Raycast(origin, direction, out isFriend, false);
+
+                if (hit.collider == null)
+                    _laser.Setup(origin, origin + direction * Distance);
+                else
+                    _laser.Setup(origin, hit.point);
+            }
+        }
 
         /// <summary>
         /// Finds best CharacterHealth gameobject.
