@@ -80,10 +80,10 @@ namespace CoverShooter
         private void LateUpdate()
         {
             if (_hurtSoundTimer > -float.Epsilon)
-                _hurtSoundTimer -= Time.deltaTime;
+                _hurtSoundTimer -= kINetworkTimer.deltaTime;
 
             if (_fallSoundTimer > -float.Epsilon)
-                _fallSoundTimer -= Time.deltaTime;
+                _fallSoundTimer -= kINetworkTimer.deltaTime;
         }
 
         /// <summary>

@@ -40,7 +40,7 @@ namespace CoverShooter
             if (!_isRunning)
                 return;
 
-            _timer -= Time.deltaTime;
+            _timer -= kINetworkTimer.deltaTime;
             if (_timer <= float.Epsilon)
                 enabled = false;
         }

@@ -365,52 +365,52 @@ namespace CoverShooter
 
         public static float Lerp(float Value, float Target, float rate)
         {
-            return Value + (Target - Value) * Mathf.Clamp01(1 - Mathf.Exp(-rate * Multiplier * Time.deltaTime));
+            return Value + (Target - Value) * Mathf.Clamp01(1 - Mathf.Exp(-rate * Multiplier * kINetworkTimer.localDeltaTime));
         }
 
         public static float LerpAngle(float Value, float Target, float rate)
         {
-            return Mathf.LerpAngle(Value, Target, 1 - Mathf.Exp(-rate * Multiplier * Time.deltaTime));
+            return Mathf.LerpAngle(Value, Target, 1 - Mathf.Exp(-rate * Multiplier * kINetworkTimer.localDeltaTime));
         }
 
         public static Vector3 Lerp(Vector3 Value, Vector3 Target, float rate)
         {
-            return Value + (Target - Value) * Mathf.Clamp01(1 - Mathf.Exp(-rate * Multiplier * Time.deltaTime));
+            return Value + (Target - Value) * Mathf.Clamp01(1 - Mathf.Exp(-rate * Multiplier * kINetworkTimer.localDeltaTime));
         }
 
         public static Vector3 Slerp(Vector3 Value, Vector3 Target, float rate)
         {
-            return Vector3.Slerp(Value, Target, Mathf.Clamp01(1 - Mathf.Exp(-rate * Multiplier * Time.deltaTime)));
+            return Vector3.Slerp(Value, Target, Mathf.Clamp01(1 - Mathf.Exp(-rate * Multiplier * kINetworkTimer.localDeltaTime)));
         }
 
         public static Quaternion Lerp(Quaternion Value, Quaternion Target, float rate)
         {
-            return Quaternion.Slerp(Value, Target, 1 - Mathf.Exp(-rate * Multiplier * Time.deltaTime));
+            return Quaternion.Slerp(Value, Target, 1 - Mathf.Exp(-rate * Multiplier * kINetworkTimer.localDeltaTime));
         }
 
         public static void Lerp(ref float Value, float Target, float rate)
         {
-            Value = Value + (Target - Value) * Mathf.Clamp01(1 - Mathf.Exp(-rate * Multiplier * Time.deltaTime));
+            Value = Value + (Target - Value) * Mathf.Clamp01(1 - Mathf.Exp(-rate * Multiplier * kINetworkTimer.localDeltaTime));
         }
 
         public static void LerpAngle(ref float Value, float Target, float rate)
         {
-            Value = Mathf.LerpAngle(Value, Target, 1 - Mathf.Exp(-rate * Multiplier * Time.deltaTime));
+            Value = Mathf.LerpAngle(Value, Target, 1 - Mathf.Exp(-rate * Multiplier * kINetworkTimer.localDeltaTime));
         }
 
         public static void Lerp(ref Vector3 Value, Vector3 Target, float rate)
         {
-            Value = Value + (Target - Value) * Mathf.Clamp01(1 - Mathf.Exp(-rate * Multiplier * Time.deltaTime));
+            Value = Value + (Target - Value) * Mathf.Clamp01(1 - Mathf.Exp(-rate * Multiplier * kINetworkTimer.localDeltaTime));
         }
 
         public static void Slerp(ref Vector3 Value, Vector3 Target, float rate)
         {
-            Value = Vector3.Slerp(Value, Target, Mathf.Clamp01(1 - Mathf.Exp(-rate * Multiplier * Time.deltaTime)));
+            Value = Vector3.Slerp(Value, Target, Mathf.Clamp01(1 - Mathf.Exp(-rate * Multiplier * kINetworkTimer.localDeltaTime)));
         }
 
         public static void Lerp(ref Quaternion Value, Quaternion Target, float rate)
         {
-            Value = Quaternion.Slerp(Value, Target, 1 - Mathf.Exp(-rate * Multiplier * Time.deltaTime));
+            Value = Quaternion.Slerp(Value, Target, 1 - Mathf.Exp(-rate * Multiplier * kINetworkTimer.localDeltaTime));
         }
 
         public static void Move(ref Vector3 Value, Vector3 Target, float speed)

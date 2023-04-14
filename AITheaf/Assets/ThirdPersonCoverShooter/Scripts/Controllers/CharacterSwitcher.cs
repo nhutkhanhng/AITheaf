@@ -68,7 +68,7 @@ namespace CoverShooter
 
                 if (Input.GetKey(key))
                 {
-                    _hold[i] += Time.deltaTime;
+                    _hold[i] += kINetworkTimer.deltaTime;
 
                     if (_hold[i] >= StrategyHold && _active != i)
                     {

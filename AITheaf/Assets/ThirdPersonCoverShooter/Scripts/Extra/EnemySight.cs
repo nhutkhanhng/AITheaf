@@ -68,9 +68,9 @@ namespace CoverShooter
             var character = Characters.Get(_cachedSight.gameObject);
 
             if (character.Motor.IsAlive && (DisplayWhenAway || character.IsAnyInSight(0)))
-                _alpha += Time.deltaTime * FadeSpeed;
+                _alpha += kINetworkTimer.deltaTime * FadeSpeed;
             else
-                _alpha -= Time.deltaTime * FadeSpeed;
+                _alpha -= kINetworkTimer.deltaTime * FadeSpeed;
 
             if (_cachedMotor != null)
             {

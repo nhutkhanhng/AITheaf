@@ -163,7 +163,7 @@ namespace CoverShooter
 
             if (FleeAfterSomeTime && _isCountingTime)
             {
-                _time -= Time.deltaTime;
+                _time -= kINetworkTimer.deltaTime;
 
                 if (_time < float.Epsilon)
                 {

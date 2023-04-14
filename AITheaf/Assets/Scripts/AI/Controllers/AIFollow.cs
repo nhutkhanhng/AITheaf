@@ -189,7 +189,7 @@ namespace CoverShooter
             else
                 Message("ToFaceWalkDirection");
 
-            _peek += Time.deltaTime;
+            _peek += kINetworkTimer.deltaTime;
             _peek %= PeekDuration + PeekDelay;
         }
 

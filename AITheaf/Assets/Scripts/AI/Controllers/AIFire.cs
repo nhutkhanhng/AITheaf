@@ -289,7 +289,7 @@ namespace CoverShooter
                     }
                 }
 
-                _fireCycle += Time.deltaTime;
+                _fireCycle += kINetworkTimer.deltaTime;
             }
             else
             {

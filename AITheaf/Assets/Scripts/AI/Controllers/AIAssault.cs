@@ -250,7 +250,7 @@ namespace CoverShooter
             if (!_isAssaulting)
                 return;
 
-            _wait += Time.deltaTime;
+            _wait += kINetworkTimer.deltaTime;
 
             if (_wait >= MaxDuration)
             {
@@ -275,12 +275,12 @@ namespace CoverShooter
                 else
                 {
                     if (_wasEverInMeleeRange)
-                        _blockWait += Time.deltaTime;
+                        _blockWait += kINetworkTimer.deltaTime;
 
                     if (_isGoingToHit)
-                        _preHitTime -= Time.deltaTime;
+                        _preHitTime -= kINetworkTimer.deltaTime;
                     else if (_postHitTime > 0)
-                        _postHitTime -= Time.deltaTime;
+                        _postHitTime -= kINetworkTimer.deltaTime;
 
                    var isInRange = false;
 

@@ -109,10 +109,10 @@ namespace CoverShooter
                     t = t * t * (3 - 2 * t);
 
                     targetPosition = _travelStart + (targetPosition - _travelStart) * t;
-                    _targetTravel = Mathf.Clamp01(_targetTravel + Time.deltaTime / TargetTransitionDuration);
+                    _targetTravel = Mathf.Clamp01(_targetTravel + kINetworkTimer.deltaTime / TargetTransitionDuration);
                 }
 
-                var move = (targetPosition - transform.position) / Time.deltaTime;
+                var move = (targetPosition - transform.position) / kINetworkTimer.deltaTime;
 
                 forwardSpeed = Vector3.Dot(move, forwardVector);
                 rightSpeed = Vector3.Dot(move, rightVector);
@@ -132,12 +132,12 @@ namespace CoverShooter
             }
 
             _velocity = forwardVector * forwardSpeed + rightVector * rightSpeed;
-            transform.position += _velocity * Time.deltaTime;
+            transform.position += _velocity * kINetworkTimer.deltaTime;
 
             _heightOffset = Mathf.Clamp(transform.position.y + _heightOffset - Input.mouseScrollDelta.y * HeightSpeed * 0.5f, MinHeight, MaxHeight) - transform.position.y;
 
             {
-                var move = Mathf.Clamp(Time.deltaTime * 10, 0, Mathf.Abs(_heightOffset)) * Mathf.Sign(_heightOffset);
+                var move = Mathf.Clamp(kINetworkTimer.deltaTime * 10, 0, Mathf.Abs(_heightOffset)) * Mathf.Sign(_heightOffset);
 
                 transform.position += Vector3.up * move;
                 transform.position -= forwardVector * move;

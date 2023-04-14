@@ -7,7 +7,7 @@ namespace CoverShooter
     /// Each character inside the level must have this component as the AI only regards objects with Actor as characters.
     /// </summary>
     [RequireComponent(typeof(Collider))]
-    public class Actor : MonoBehaviour, ICharacterHeightListener, ICharacterCoverListener, ICharacterHealthListener
+    public class Actor : mNetworkTransform, ICharacterHeightListener, ICharacterCoverListener, ICharacterHealthListener
     {
         #region Properties
 

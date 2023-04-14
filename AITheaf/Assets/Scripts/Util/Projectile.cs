@@ -34,8 +34,8 @@ namespace CoverShooter
 
         private void Update()
         {
-            transform.position += Direction * Speed * Time.deltaTime;
-            _path += Speed * Time.deltaTime;
+            transform.position += Direction * Speed * kINetworkTimer.deltaTime;
+            _path += Speed * kINetworkTimer.deltaTime;
 
             if (_path >= Distance)
             {

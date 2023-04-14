@@ -211,12 +211,12 @@ namespace CoverShooter
             if (shouldGoUp)
                 _zoom = 1;
             else
-                _zoom = Mathf.Clamp(_zoom - Time.deltaTime / ZoomDelay, 0, 1);
+                _zoom = Mathf.Clamp(_zoom - kINetworkTimer.deltaTime / ZoomDelay, 0, 1);
 
             if (_zoom > float.Epsilon)
-                _offsetScale = Mathf.Clamp(_offsetScale + Time.deltaTime * OffsetSpeed, 0, 1);
+                _offsetScale = Mathf.Clamp(_offsetScale + kINetworkTimer.deltaTime * OffsetSpeed, 0, 1);
             else
-                _offsetScale = Mathf.Clamp(_offsetScale - Time.deltaTime * OffsetSpeed, 0, 1);
+                _offsetScale = Mathf.Clamp(_offsetScale - kINetworkTimer.deltaTime * OffsetSpeed, 0, 1);
 
             var newPosition = Target.transform.position;
 
@@ -230,7 +230,7 @@ namespace CoverShooter
             var t = _targetTravel;
             t = t * t * (3 - 2 * t);
 
-            _targetTravel = Mathf.Clamp01(_targetTravel + Time.deltaTime / Switch);
+            _targetTravel = Mathf.Clamp01(_targetTravel + kINetworkTimer.deltaTime / Switch);
 
             var nextCameraPosition = _motorPosition + _offset;
             var nextCameraTarget = _motorPosition + _targetOffset;

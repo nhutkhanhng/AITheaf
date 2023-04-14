@@ -261,7 +261,7 @@ namespace CoverShooter
 
             if (_hasJustFiredOrThrown)
             {
-                _postAimWait += Time.deltaTime;
+                _postAimWait += kINetworkTimer.deltaTime;
 
                 if (_postAimWait >= PostFireDelay)
                 {
@@ -306,7 +306,7 @@ namespace CoverShooter
                         _coverTimer = 0;
                     }
                     else
-                        _coverTimer += Time.deltaTime;
+                        _coverTimer += kINetworkTimer.deltaTime;
                 }
                 else
                     _wasInCover = false;

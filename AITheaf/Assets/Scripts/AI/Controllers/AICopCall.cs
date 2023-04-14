@@ -132,7 +132,7 @@ namespace CoverShooter
                     Message("ToMakeCall");
                 }
                 else
-                    _delay -= Time.deltaTime;
+                    _delay -= kINetworkTimer.deltaTime;
             }
         }
 

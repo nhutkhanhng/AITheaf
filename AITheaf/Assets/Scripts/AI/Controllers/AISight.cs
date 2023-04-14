@@ -128,7 +128,7 @@ namespace CoverShooter
             if (!_actor.IsAlive)
                 return;
 
-            _wait -= Time.deltaTime;
+            _wait -= kINetworkTimer.deltaTime;
 
             if (_wait > float.Epsilon)
             {

@@ -143,7 +143,7 @@ namespace CoverShooter
         {
             if (_isActivating)
             {
-                _activateTimer -= Time.deltaTime;
+                _activateTimer -= kINetworkTimer.deltaTime;
 
                 if (_activateTimer < float.Epsilon)
                 {
@@ -160,7 +160,7 @@ namespace CoverShooter
                     explode();
                 else
                 {
-                    _timer -= Time.deltaTime;
+                    _timer -= kINetworkTimer.deltaTime;
 
                     if (_timer < Timer - PreviewTime)
                     {
@@ -193,7 +193,7 @@ namespace CoverShooter
                 _offset = Util.Lerp(_offset, Vector3.zero, 2);
                 position += _offset - previousOffset;
 
-                GrenadePath.Step(ref position, ref _velocity, Time.deltaTime, _gravity, Bounciness);
+                GrenadePath.Step(ref position, ref _velocity, kINetworkTimer.deltaTime, _gravity, Bounciness);
 
                 transform.position = position;
             }

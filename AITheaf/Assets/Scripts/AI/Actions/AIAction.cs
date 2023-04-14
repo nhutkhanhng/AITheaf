@@ -54,7 +54,6 @@ namespace CoverShooter
         /// </summary>
         [Tooltip("Is the action performed automatically by the AI. Actions without any possible targets (like simple movement) won't be performed.")]
         public bool Auto;
-
         /// <summary>
         /// Time in seconds to wait after activation before the action can be performed again.
         /// </summary>

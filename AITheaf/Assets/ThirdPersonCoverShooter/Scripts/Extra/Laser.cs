@@ -60,12 +60,12 @@ namespace CoverShooter
         {
             if (Alpha < _laserIntensity)
             {
-                _laserIntensity -= Time.deltaTime * 8;
+                _laserIntensity -= kINetworkTimer.deltaTime * 8;
                 _laserIntensity = Mathf.Clamp(_laserIntensity, Alpha, 1);
             }
             else
             {
-                _laserIntensity += Time.deltaTime * 3;
+                _laserIntensity += kINetworkTimer.deltaTime * 3;
                 _laserIntensity = Mathf.Clamp(_laserIntensity, 0, Alpha);
             }
 

@@ -334,7 +334,7 @@ namespace CoverShooter
                     _shakeTarget.z = 0;
                 }
 
-                _shakeTime -= Time.deltaTime;
+                _shakeTime -= kINetworkTimer.deltaTime;
             }
             else
                 Util.Lerp(ref _shake, Vector3.zero, 10);
@@ -447,12 +447,12 @@ namespace CoverShooter
                     _cornerDelay = max;
 
                 if (_cornerDelay < max)
-                    _cornerDelay += Time.deltaTime;
+                    _cornerDelay += kINetworkTimer.deltaTime;
                 else
                     _isByCorner = true;
             }
             else if (_cornerDelay > float.Epsilon)
-                _cornerDelay -= Time.deltaTime;
+                _cornerDelay -= kINetworkTimer.deltaTime;
             else
                 _isByCorner = false;
 

@@ -37,7 +37,7 @@ namespace CoverShooter
 
             if (count <= TriggerCount)
             {
-                _buildup += Time.deltaTime;
+                _buildup += kINetworkTimer.deltaTime;
 
                 if (_buildup >= TriggerDelay)
                 {

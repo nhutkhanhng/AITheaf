@@ -313,7 +313,7 @@ namespace CoverShooter
             if (_wasRunning && !shouldRunTo(_point.Position))
                 walk();
 
-            _checkWait -= Time.deltaTime;
+            _checkWait -= kINetworkTimer.deltaTime;
 
             if (_checkWait <= float.Epsilon)
             {

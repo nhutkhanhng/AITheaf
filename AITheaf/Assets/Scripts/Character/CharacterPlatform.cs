@@ -5,7 +5,7 @@ namespace CoverShooter
     /// <summary>
     /// Keeps character on top of a moving platform. It doesn’t require a Character Motor or any other component and therefore can be used on any object even if it’s not physical.
     /// </summary>
-    public class CharacterPlatform : MonoBehaviour
+    public class CharacterPlatform : mNetworkTransform
     {
         /// <summary>
         /// Distance below feet to check for ground.
@@ -21,7 +21,7 @@ namespace CoverShooter
 
         private RaycastHit[] _cache = new RaycastHit[16];
 
-        private void LateUpdate()
+        public override void _LateUpdate()
         {
             findPlatform();
 

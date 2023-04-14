@@ -64,7 +64,7 @@ namespace CoverShooter
 
             if (_isWaiting)
             {
-                _waitTime += Time.deltaTime;
+                _waitTime += kINetworkTimer.deltaTime;
 
                 if (Waypoints[_waypoint].Pause <= _waitTime)
                 {

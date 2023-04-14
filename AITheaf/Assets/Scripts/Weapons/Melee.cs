@@ -153,7 +153,7 @@ namespace CoverShooter
         private void Update()
         {
             if (_cooldown > float.Epsilon)
-                _cooldown -= Time.deltaTime;
+                _cooldown -= kINetworkTimer.deltaTime;
         }
     }
 }

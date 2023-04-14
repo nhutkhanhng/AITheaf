@@ -366,7 +366,7 @@ namespace CoverShooter
             var delay = config.Delay.Get(cameraDistance);
 
             if (_lastHitWait > float.Epsilon)
-                _lastHitWait -= Time.deltaTime;
+                _lastHitWait -= kINetworkTimer.deltaTime;
 
             if (_lastHitStrength > float.Epsilon)
             {
@@ -380,7 +380,7 @@ namespace CoverShooter
                     config.HitBone.localRotation = rotation * config.HitBone.localRotation;
                 }
 
-                _lastHitStrength -= Time.deltaTime * 5.0f;
+                _lastHitStrength -= kINetworkTimer.deltaTime * 5.0f;
             }
 
             if (_motor.IsPerformingMelee)
@@ -641,10 +641,10 @@ namespace CoverShooter
                 if (_motor.wantsToFire && !_motor.IsInCover && !_motor.Weapon.IsNull && _motor.IsEquipped)
                     _armAimIntensity = targetIntensity;
                 else
-                    Util.Move(ref _armAimIntensity, targetIntensity, Time.deltaTime * 10);
+                    Util.Move(ref _armAimIntensity, targetIntensity, kINetworkTimer.deltaTime * 10);
             }
             else if (_armAimIntensity > targetIntensity)
-                Util.Move(ref _armAimIntensity, targetIntensity, Time.deltaTime * 10);
+                Util.Move(ref _armAimIntensity, targetIntensity, kINetworkTimer.deltaTime * 10);
         }
 
         private void updateLeftHandIntensity(BaseGun gun)
@@ -691,10 +691,10 @@ namespace CoverShooter
                 if (_motor.wantsToFire)
                     _leftHandAimIntensity = targetIntensity;
                 else
-                    Util.Move(ref _leftHandAimIntensity, targetIntensity, Time.deltaTime * 15);
+                    Util.Move(ref _leftHandAimIntensity, targetIntensity, kINetworkTimer.deltaTime * 15);
             }
             else
-                Util.Move(ref _leftHandAimIntensity, targetIntensity, Time.deltaTime * 15);
+                Util.Move(ref _leftHandAimIntensity, targetIntensity, kINetworkTimer.deltaTime * 15);
         }
 
         private void updateHeadAimIntennsity()

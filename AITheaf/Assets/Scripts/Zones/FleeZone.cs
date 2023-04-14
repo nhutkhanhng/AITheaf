@@ -53,7 +53,7 @@ namespace CoverShooter
             for (int i = _actors.Count - 1; i >= 0; i--)
             {
                 var actor = _actors[i];
-                _times[actor] += Time.deltaTime;
+                _times[actor] += kINetworkTimer.deltaTime;
 
                 if (_times[actor] >= RemoveDelay)
                 {

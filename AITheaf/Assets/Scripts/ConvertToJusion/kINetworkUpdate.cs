@@ -6,6 +6,4 @@ public interface kINetworkUpdate
 {
     void FixedUpdateNetwork();
     void kRender();
-
-    void Update();
 }

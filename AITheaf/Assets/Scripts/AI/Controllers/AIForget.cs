@@ -44,7 +44,7 @@ namespace CoverShooter
                     Message("ToForget");
                 }
                 else
-                    _time += Time.deltaTime;
+                    _time += kINetworkTimer.deltaTime;
             }
         }
     }

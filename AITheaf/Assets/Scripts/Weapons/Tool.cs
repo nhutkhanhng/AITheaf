@@ -16,7 +16,7 @@ namespace CoverShooter
     /// <summary>
     /// Tools are like Gun or Melee attached to a weapon. Their existance tells CharacterMotor that the weapon can be used as a tool.
     /// </summary>
-    public abstract class Tool : MonoBehaviour
+    public abstract class Tool : mNetworkTransform
     {
         /// <summary>
         /// Signifies if a character needs to aim while using the tool.

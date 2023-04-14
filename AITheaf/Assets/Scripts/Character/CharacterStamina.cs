@@ -135,9 +135,9 @@ namespace CoverShooter
             if (!_isDead)
             {
                 if (_consumption > float.Epsilon)
-                    Take(_consumption * Time.deltaTime);
+                    Take(_consumption * kINetworkTimer.deltaTime);
 
-                Stamina = Mathf.Clamp(Stamina + Regeneration * Time.deltaTime, 0, MaxStamina);
+                Stamina = Mathf.Clamp(Stamina + Regeneration * kINetworkTimer.deltaTime, 0, MaxStamina);
 
                 if (!_motor.CanRun) _motor.CanRun = Stamina >= RunTrigger;
                 if (!_motor.CanSprint) _motor.CanSprint = Stamina >= SprintTrigger;

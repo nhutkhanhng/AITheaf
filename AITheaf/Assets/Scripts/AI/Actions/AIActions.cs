@@ -219,9 +219,9 @@ namespace CoverShooter
 
         public override void FixedUpdateNetwork()
         {
-            if (_autoWait > float.Epsilon) _autoWait -= Time.deltaTime;
-            if (_checkWait > float.Epsilon) _checkWait -= Time.deltaTime;
-            if (_coverTimer > float.Epsilon) _coverTimer -= Time.deltaTime;
+            if (_autoWait > float.Epsilon) _autoWait -= kINetworkTimer.deltaTime;
+            if (_checkWait > float.Epsilon) _checkWait -= kINetworkTimer.deltaTime;
+            if (_coverTimer > float.Epsilon) _coverTimer -= kINetworkTimer.deltaTime;
 
             if (_active != null && (!_active.Update() || (!_active.HasNoTimeout && (Time.timeSinceLevelLoad - _actionStart) > Timeout)))
                 end();

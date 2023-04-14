@@ -66,7 +66,7 @@ namespace CoverShooter
         public void Update()
         {
             if (TimeLeftForNextStep >= -float.Epsilon)
-                TimeLeftForNextStep -= Time.deltaTime;
+                TimeLeftForNextStep -= kINetworkTimer.deltaTime;
             else
                 switch (Step)
                 {

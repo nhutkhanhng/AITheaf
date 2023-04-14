@@ -35,7 +35,7 @@ namespace CoverShooter
 
             if (Motor == null || target == null || target == Motor.gameObject)
             {
-                _timer += Time.deltaTime;
+                _timer += kINetworkTimer.deltaTime;
 
                 if (_timer >= HideDelay)
                     _healthBar.Target = null;

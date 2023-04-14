@@ -11,7 +11,7 @@ namespace CoverShooter
     /// The intended position of the left hand might differ in some animations, to handle that there are left hand marker overwrites you can use to set up IK for the left hand for some specific situations. Empty values are not used as overwrites.
     /// Currently there are two kinds of weapons, pistols and rifles. The type defines character animations when using the weapon.
     /// </summary>
-    public abstract class BaseGun : MonoBehaviour
+    public abstract class BaseGun : mNetworkTransform
     {
         #region Properties
 
@@ -492,7 +492,7 @@ namespace CoverShooter
                 _isFiringOnNextUpdate = true;
 
             if (_hitWait >= 0)
-                _hitWait -= Time.deltaTime;
+                _hitWait -= kINetworkTimer.deltaTime;
 
             if (DebugAim)
             {
@@ -524,7 +524,7 @@ namespace CoverShooter
                 _wasAllowedAndFiring = isAllowedAndFiring;
             }
 
-            _fireWait -= Time.deltaTime;
+            _fireWait -= kINetworkTimer.deltaTime;
 
             // Check if the trigger is pressed.
             if (_isFiringOnNextUpdate && _isAllowed)

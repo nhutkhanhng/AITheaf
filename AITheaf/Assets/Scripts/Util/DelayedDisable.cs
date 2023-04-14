@@ -22,7 +22,7 @@ namespace CoverShooter
 
         private void Update()
         {
-            _timer += Time.deltaTime;
+            _timer += kINetworkTimer.deltaTime;
 
             if (_timer >= Delay)
                 gameObject.SetActive(false);

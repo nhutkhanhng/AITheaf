@@ -208,7 +208,7 @@ namespace CoverShooter
             if (Actor == null || !Actor.IsAlive)
                 return;
 
-            _stateTime += Time.deltaTime;
+            _stateTime += kINetworkTimer.deltaTime;
 
             if (Threat != null && CanSeeTheThreat)
                 SetThreat(Threat, Threat.transform.position, Threat.Cover);

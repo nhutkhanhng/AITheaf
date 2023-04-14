@@ -556,13 +556,13 @@ namespace CoverShooter
                     _brain.SetIdleAlertedState();
 
                 if (_takeCoverTimer > float.Epsilon)
-                    _takeCoverTimer -= Time.deltaTime;
+                    _takeCoverTimer -= kINetworkTimer.deltaTime;
 
                 if (_coverSearchTimer > float.Epsilon)
-                    _coverSearchTimer -= Time.deltaTime;
+                    _coverSearchTimer -= kINetworkTimer.deltaTime;
 
                 if (_pathTimer > float.Epsilon)
-                    _pathTimer -= Time.deltaTime;
+                    _pathTimer -= kINetworkTimer.deltaTime;
                 else if (!isBusy || _isRegrouping)
                 {
                     var formation = Leader.Formation;

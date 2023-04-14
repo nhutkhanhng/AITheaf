@@ -8,7 +8,7 @@ namespace CoverShooter
     /// Manages health and sets Is Alive in Character Motor to false when it reaches 0. Registers damage done by bullets.
     /// Multiple hitboxes can be setup inside the character. On setup Character Health will stop registering hits and instead will expect child Body Part Health components to pass taken damage to it.
     /// </summary>
-    public class CharacterHealth : MonoBehaviour, ICharacterHealthListener
+    public class CharacterHealth : mNetworkTransform, ICharacterHealthListener
     {
         /// <summary>
         /// Current health of the character.
@@ -112,7 +112,7 @@ namespace CoverShooter
         {
             if (!_isDead)
             {
-                Health = Mathf.Clamp(Health + Regeneration * Time.deltaTime, 0, MaxHealth);
+                Health = Mathf.Clamp(Health + Regeneration * kINetworkTimer.deltaTime, 0, MaxHealth);
                 check();
             }
         }

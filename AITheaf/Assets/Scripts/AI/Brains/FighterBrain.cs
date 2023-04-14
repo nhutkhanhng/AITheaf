@@ -1398,7 +1398,7 @@ namespace CoverShooter
             if (Actor == null || !Actor.IsAlive)
                 return;
 
-            _stateTime += Time.deltaTime;
+            _stateTime += kINetworkTimer.deltaTime;
 
             if (_futureSetState != FighterState.none)
             {
@@ -1428,10 +1428,10 @@ namespace CoverShooter
                     _invisibleTime = 0;
                 }
                 else
-                    _invisibleTime += Time.deltaTime;
+                    _invisibleTime += kINetworkTimer.deltaTime;
             }
             else
-                _invisibleTime += Time.deltaTime;
+                _invisibleTime += kINetworkTimer.deltaTime;
 
             if (DebugThreat && Threat != null)
                 Debug.DrawLine(transform.position, LastKnownThreatPosition, Color.cyan);
@@ -2224,14 +2224,14 @@ namespace CoverShooter
             if (_hasThrowFirstGrenade)
             {
                 if (_grenadeTimer < Grenades.Interval)
-                    _grenadeTimer += Time.deltaTime;
+                    _grenadeTimer += kINetworkTimer.deltaTime;
                 else
                     doThrow = true;
             }
             else
             {
                 if (_grenadeTimer < Grenades.FirstCheckDelay)
-                    _grenadeTimer += Time.deltaTime;
+                    _grenadeTimer += kINetworkTimer.deltaTime;
                 else
                     doThrow = true;
             }
@@ -2296,7 +2296,7 @@ namespace CoverShooter
                         _grenadeCheckTimer = Grenades.CheckInterval;
                 }
                 else
-                    _grenadeCheckTimer -= Time.deltaTime;
+                    _grenadeCheckTimer -= kINetworkTimer.deltaTime;
             }
             else
                 _grenadeCheckTimer = 0;
@@ -2310,7 +2310,7 @@ namespace CoverShooter
 
                 if (Vector3.Distance(grenade.transform.position, transform.position) < grenade.ExplosionRadius)
                 {
-                    _grenadeAvoidReaction += Time.deltaTime;
+                    _grenadeAvoidReaction += kINetworkTimer.deltaTime;
 
                     if (_grenadeAvoidReaction >= GrenadeAvoidance.ReactionTime + float.Epsilon)
                     {

@@ -313,10 +313,10 @@ namespace CoverShooter
 
         protected virtual void UpdateRolling()
         {
-            if (_timeW > 0) _timeW -= Time.deltaTime;
-            if (_timeA > 0) _timeA -= Time.deltaTime;
-            if (_timeS > 0) _timeS -= Time.deltaTime;
-            if (_timeD > 0) _timeD -= Time.deltaTime;
+            if (_timeW > 0) _timeW -= kINetworkTimer.deltaTime;
+            if (_timeA > 0) _timeA -= kINetworkTimer.deltaTime;
+            if (_timeS > 0) _timeS -= kINetworkTimer.deltaTime;
+            if (_timeD > 0) _timeD -= kINetworkTimer.deltaTime;
 
             if (Input.GetButtonDown("RollForward"))
             {

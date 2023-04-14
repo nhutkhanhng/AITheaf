@@ -141,7 +141,7 @@ namespace CoverShooter
 
         #region Behaviour
 
-        public  void Awake()
+        public void Awake()
         {
             _actor = GetComponent<Actor>();
             _motor = GetComponent<CharacterMotor>();
@@ -154,13 +154,13 @@ namespace CoverShooter
 
             if (_firstTriggerWait < FirstCheckDelay)
             { 
-                _firstTriggerWait += Time.deltaTime;
+                _firstTriggerWait += kINetworkTimer.deltaTime;
                 return;
             }
 
             if (_triggerSpacing >= float.Epsilon)
             {
-                _triggerSpacing -= Time.deltaTime;
+                _triggerSpacing -= kINetworkTimer.deltaTime;
                 return;
             }
 
@@ -195,7 +195,7 @@ namespace CoverShooter
                         }
                     }
                     else
-                        _triggerWait += Time.deltaTime;
+                        _triggerWait += kINetworkTimer.deltaTime;
                 }
                 else
                     _triggerWait = 0;

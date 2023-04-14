@@ -505,7 +505,7 @@ namespace CoverShooter
                         if (AimWhenWalking && MovementInput.IsMoving)
                             _aimSustain = AimSustain;
                         else
-                            _aimSustain -= Time.deltaTime;
+                            _aimSustain -= kINetworkTimer.deltaTime;
 
                         checkZoom();
                         checkEquipment();
@@ -785,7 +785,7 @@ namespace CoverShooter
                     else
                     {
                         if (_noAimSustain < NoAimSustain)
-                            _noAimSustain += Time.deltaTime;
+                            _noAimSustain += kINetworkTimer.deltaTime;
                         else
                             return true;
                     }
@@ -841,7 +841,7 @@ namespace CoverShooter
             if (_motor.IsGrounded)
             {
                 if (_postLandWait >= 0)
-                    _postLandWait -= Time.deltaTime;
+                    _postLandWait -= kINetworkTimer.deltaTime;
             }
             else
                 _postLandWait = PostLandAimDelay;
@@ -886,15 +886,15 @@ namespace CoverShooter
             {
                 if ((MovementInput.IsSlowedDown || MovementInput.Magnitude > 0.6f) && MovementInput.Magnitude < 1.1f && MovementInput.IsMoving && !_motor.IsClimbingOrVaulting)
                 {
-                    _armLiftTimer += Time.deltaTime;
+                    _armLiftTimer += kINetworkTimer.deltaTime;
                     _armLiftRetain = 0.1f;
                 }
                 else
                 {
                     if (_armLiftRetain > float.Epsilon)
-                        _armLiftRetain -= Time.deltaTime;
+                        _armLiftRetain -= kINetworkTimer.deltaTime;
                     else
-                        _armLiftTimer = Mathf.Clamp01(_armLiftTimer - Time.deltaTime);
+                        _armLiftTimer = Mathf.Clamp01(_armLiftTimer - kINetworkTimer.deltaTime);
                 }
             }
 
@@ -1074,7 +1074,7 @@ namespace CoverShooter
                 _motor.InputCrouchNearCover();
 
             if (_motor.PotentialCover != null)
-                _coverDelayWait += Time.deltaTime;
+                _coverDelayWait += kINetworkTimer.deltaTime;
             else
                 _coverDelayWait = 0;
         }
