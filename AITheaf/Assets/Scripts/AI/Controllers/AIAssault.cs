@@ -238,14 +238,14 @@ namespace CoverShooter
 
         #region Behaviour
 
-        private void Awake()
+        public void Awake()
         {
             _actor = GetComponent<Actor>();
             _motor = GetComponent<CharacterMotor>();
             _brain = GetComponent<BaseBrain>();
         }
 
-        private void Update()
+        public override void Update()
         {
             if (!_isAssaulting)
                 return;

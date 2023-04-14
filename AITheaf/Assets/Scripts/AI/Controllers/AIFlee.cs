@@ -116,7 +116,7 @@ namespace CoverShooter
             _path = new NavMeshPath();
         }
 
-        private void Update()
+        public override void FixedUpdateNetwork()
         {
             if (!_isFleeing)
                 return;

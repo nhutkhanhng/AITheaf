@@ -45,7 +45,7 @@ namespace CoverShooter
             _isVisiting = false;
         }
 
-        private void Update()
+        public override void FixedUpdateNetwork()
         {
             if (!_isVisiting)
                 return;

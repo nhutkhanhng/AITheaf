@@ -31,7 +31,7 @@ namespace CoverShooter
             _threat = null;
         }
 
-        private void Update()
+        public override void FixedUpdateNetwork()
         {
             if (_threat != null)
                 if (Vector3.Distance(transform.position, _threat.transform.position) >= Distance - float.Epsilon)

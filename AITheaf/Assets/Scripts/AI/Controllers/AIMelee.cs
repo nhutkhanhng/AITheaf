@@ -21,7 +21,7 @@ namespace CoverShooter
             _motor = GetComponent<CharacterMotor>();
         }
 
-        private void Update()
+        public override void FixedUpdateNetwork()
         {
             if (_brain.Threat == null)
                 return;

@@ -203,7 +203,7 @@ namespace CoverShooter
             Actor.IsAggressive = false;
         }
 
-        private void Update()
+        public override void FixedUpdateNetwork()
         {
             if (Actor == null || !Actor.IsAlive)
                 return;

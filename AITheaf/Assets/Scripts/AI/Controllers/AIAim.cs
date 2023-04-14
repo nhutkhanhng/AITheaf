@@ -337,7 +337,7 @@ namespace CoverShooter
 
         #region Behaviour
 
-        private void Awake()
+        public void Awake()
         {
             _actor = GetComponent<Actor>();
             _motor = GetComponent<CharacterMotor>();
@@ -349,7 +349,7 @@ namespace CoverShooter
             _targetHeightTime = Time.timeSinceLevelLoad;
         }
 
-        private void Update()
+        public override void FixedUpdateNetwork()
         {
             if (!_actor.IsAlive)
                 return;

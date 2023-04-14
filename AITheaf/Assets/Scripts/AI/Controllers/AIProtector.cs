@@ -21,7 +21,7 @@ namespace CoverShooter
             _previousTarget = Target;
         }
 
-        private void Update()
+        public override void FixedUpdateNetwork()
         {
             if (Target != _previousTarget)
             {

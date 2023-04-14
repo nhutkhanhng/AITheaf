@@ -5,8 +5,18 @@ namespace CoverShooter
     /// <summary>
     /// Base parent class for some AI components.
     /// </summary>
-    public class AIBase : MonoBehaviour
+    public class AIBase : MonoBehaviour, kINetworkUpdate
     {
+        public virtual void FixedUpdateNetwork()
+        {
+            
+        }
+
+        public virtual void kRender()
+        {
+            
+        }
+
         /// <summary>
         /// Sends a message to other components.
         /// </summary>
@@ -21,6 +31,11 @@ namespace CoverShooter
         public void Message(string name, object value)
         {
             SendMessage(name, value, SendMessageOptions.DontRequireReceiver);
+        }
+
+        public virtual void Update()
+        {
+            FixedUpdateNetwork();
         }
     }
 }

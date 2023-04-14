@@ -52,12 +52,12 @@ namespace CoverShooter
 
         private static Dictionary<Actor, AICommunication> _components = new Dictionary<Actor, AICommunication>();
 
-        private void Awake()
+        public void Awake()
         {
             _actor = GetComponent<Actor>();
         }
 
-        private void Update()
+        public override void FixedUpdateNetwork()
         {
             if (!_actor.IsAlive)
                 return;

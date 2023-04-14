@@ -217,7 +217,7 @@ namespace CoverShooter
             _isTakingCover = true;
         }
 
-        private void Update()
+        public override void FixedUpdateNetwork()
         {
             if (_autoWait > float.Epsilon) _autoWait -= Time.deltaTime;
             if (_checkWait > float.Epsilon) _checkWait -= Time.deltaTime;

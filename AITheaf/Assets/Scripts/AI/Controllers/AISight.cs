@@ -123,7 +123,7 @@ namespace CoverShooter
             _brain = GetComponent<FighterBrain>();
         }
 
-        private void Update()
+        public override void FixedUpdateNetwork()
         {
             if (!_actor.IsAlive)
                 return;

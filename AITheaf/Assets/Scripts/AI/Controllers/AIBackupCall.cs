@@ -141,13 +141,13 @@ namespace CoverShooter
 
         #region Behaviour
 
-        private void Awake()
+        public  void Awake()
         {
             _actor = GetComponent<Actor>();
             _motor = GetComponent<CharacterMotor>();
         }
 
-        private void Update()
+        public override void FixedUpdateNetwork()
         {
             if (!_actor.IsAlive || !_canCall)
                 return;

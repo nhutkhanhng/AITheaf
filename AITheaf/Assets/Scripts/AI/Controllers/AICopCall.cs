@@ -118,7 +118,7 @@ namespace CoverShooter
             _actor = GetComponent<Actor>();
         }
 
-        private void Update()
+        public override void FixedUpdateNetwork()
         {
             if (!_actor.IsAlive)
                 return;

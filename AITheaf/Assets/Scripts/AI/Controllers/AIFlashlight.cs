@@ -102,7 +102,7 @@ namespace CoverShooter
             _motor = GetComponent<CharacterMotor>();
         }
 
-        private void Update()
+        public override void FixedUpdateNetwork()
         {
             if (!_actor.IsAlive)
                 return;
